@@ -1,6 +1,6 @@
 ﻿namespace ShopOnline.models.DTOs
 {
-    internal class CartItemDto
+    public class CartItemDto
     {
         public int Id { get; set; }
         public int ProductId { get; set; }

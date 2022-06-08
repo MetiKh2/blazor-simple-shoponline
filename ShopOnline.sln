@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.web", "ShopOnline.web\ShopOnline.web.csproj", "{A5E24121-D4F2-4C0A-B84F-222F9011F696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.web", "ShopOnline.web\ShopOnline.web.csproj", "{A5E24121-D4F2-4C0A-B84F-222F9011F696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.api", "ShopOnline.api\ShopOnline.api.csproj", "{AE18F33B-10E7-4A9B-8DF2-A3A060BFDC61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.api", "ShopOnline.api\ShopOnline.api.csproj", "{AE18F33B-10E7-4A9B-8DF2-A3A060BFDC61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.models", "ShopOnline.models\ShopOnline.models.csproj", "{9B4D92B2-FBDD-4F40-A795-5A8EDB82EDA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.models", "ShopOnline.models\ShopOnline.models.csproj", "{9B4D92B2-FBDD-4F40-A795-5A8EDB82EDA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

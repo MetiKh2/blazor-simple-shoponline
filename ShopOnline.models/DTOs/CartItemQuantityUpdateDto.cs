@@ -8,7 +8,7 @@ namespace ShopOnline.models.DTOs
 {
     public class CartItemQuantityUpdateDto
     {
-        public int CartItemDto { get; set; }
+        public int CartItemId { get; set; }
         public int Quantity { get; set; }
     }
 }

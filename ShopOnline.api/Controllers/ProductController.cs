@@ -23,9 +23,8 @@ namespace ShopOnline.api.Controllers
             try
             {
                 var products = await _productRepository.GetProducts();
-                var categories = await _productRepository.GetProductCategories();
-                if (products == null || categories == null) return NotFound();
-                return Ok(products.ConvertToDto(categories));
+                if (products == null ) return NotFound();
+                return Ok(products.ConvertToDto());
             }
             catch (Exception)
             {
@@ -34,6 +33,54 @@ namespace ShopOnline.api.Controllers
                 throw;
             }
           
+        }
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
+        {
+            try
+            {
+                var product = await _productRepository.GetProduct(id);
+                if (product == null) return NotFound();
+
+                return Ok(product.ConvertToDto());
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error reteriving data from database");
+                throw;
+            }
+        }
+        [HttpGet(nameof(GetProductCategories))]
+        public async Task<IActionResult> GetProductCategories()
+        {
+            try
+            {
+                var productCategories = await _productRepository.GetProductCategories();
+                if (productCategories == null) return NotFound();
+                return Ok(productCategories.ConvertToDto());
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    e.Message);
+                throw;
+            }
+        }
+        [HttpGet("category/{categoryId}")]
+        public async Task<IActionResult> GetProductsByCategory(int categoryId)
+        {
+            try
+            {
+                var products = await _productRepository.GetProductsByCategory(categoryId);
+                return Ok(products.ConvertToDto());
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    e.Message);
+                throw;
+            }
         }
     }
 }

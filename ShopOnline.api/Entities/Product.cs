@@ -1,4 +1,6 @@
-﻿namespace ShopOnline.api.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ShopOnline.api.Entities
 {
     public class Product
     {
@@ -9,5 +11,7 @@
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public int CategoryId { get; set; }
+        [ForeignKey(nameof(CategoryId))]
+        public ProductCategory ProductCategory { get; set; }
     }
 }

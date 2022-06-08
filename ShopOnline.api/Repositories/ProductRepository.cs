@@ -16,7 +16,8 @@ namespace ShopOnline.api.Repositories
 
         public async Task<Product> GetProduct(int id)
         {
-            return await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Products.Include(p=>p.ProductCategory)
+                .SingleOrDefaultAsync(p=>p.Id==id);
         }
 
         public async Task<IEnumerable<ProductCategory>> GetProductCategories()
@@ -24,14 +25,19 @@ namespace ShopOnline.api.Repositories
             return await _context.ProductCategories.ToListAsync();
         }
 
-        public Task<ProductCategory> GetProductCategory(int id)
+        public async Task<ProductCategory> GetProductCategory(int id)
         {
-            throw new NotImplementedException();
+           return await _context.ProductCategories.FindAsync(id);
         }
 
         public async Task<IEnumerable<Product>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Include(p=>p.ProductCategory).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsByCategory(int categoryId)
+        {
+           return await _context.Products.Include(p => p.ProductCategory).Where(p=>p.CategoryId==categoryId).ToListAsync(); 
         }
     }
 }
